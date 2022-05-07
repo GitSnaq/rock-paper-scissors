@@ -3,35 +3,135 @@ function computerPlay(){
     let choice = choiceArray[Math.floor(Math.random()*choiceArray.length)]
     return choice
 }
+function roundOfGameplay(playerSelection, computerSelection){
+    playerSelection = playerSelection.toLowerCase();
+    if(playerSelection==="rock" && computerSelection ==="paper"){
+        return "computer wins"
+    }
+    else if(playerSelection==="paper" && computerSelection ==="scissor"){
+        return "computer wins"
+    }
+    else if(playerSelection==="scissor" && computerSelection ==="rock"){
+        return "computer wins"
+    }
+    else if(playerSelection==="paper" && !(computerSelection ==="scissor")){
+        return "player wins"
+    }
+    else if(playerSelection==="scissor" && !(computerSelection ==="rock")){
+        return "player wins"
+    }
+    else if(playerSelection==="rock" && !(computerSelection ==="paper")){
+        return "player wins"
+    }
+    else if (playerSelection===computerSelection){
+        return "was a draw"
+    }
+}
+// console.log(roundOfGameplay("Rock", computerPlay()))
 
-function singleRoundOfPlay(playerSelect, computerSelect=computerPlay()){
-    playerSelect = playerSelect.toLowerCase();
-    let i = 0
-    switch (playerSelect){
-        case "rock":
-            if(computerSelect === "paper"){
-                return("Computer wins")
-            }
-            else {
-                return("Player wins")
-            }
-        case "paper":
-            if(computerSelect === "scissor"){
-                return("Computer wins")
-            }
-            else{
-                return("Player wins");
-            }
-        case "scissor":
-            if(computerSelect === "rock"){
-                return("Computer wins")
-            }
-            else{
-                return("Player wins");
-            }
-        default:
-            return("You fudged up")
+console.log(game("rock"))
+
+function game(a){
+    playerCount = 0;
+    computerCount = 0;
+    i = 0;
+    while (i<10){
+        pcChoice = computerPlay();
+        result = roundOfGameplay(a, pcChoice)
+        console.log(result)
+        i++
+        if (result==="player wins"){
+            playerCount++
+        }
+        else if(result==="computer wins"){
+            computerCount++
+        }
+    }
+    finalResult = [playerCount, computerCount]
+    if (playerCount>computerCount){
+        playerCount = Number(playerCount)
+        computerCount = Number(computerCount)
+        return `final score was:(${finalResult}) where the Player won ${playerCount-computerCount} more games`
+    }
+    else if(playerCount<computerCount){
+        playerCount = Number(playerCount)
+        computerCount = Number(computerCount)
+        return `final score was:(${finalResult}) where the Computer won ${computerCount-playerCount} more games`
+    }
+    else{
+        return "It was a draw"
     }
 }
 
-console.log(singleRoundOfPlay("ROCK"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function singleRoundOfPlay(playerSelect, computerSelect=computerPlay()){
+//     playerSelect = playerSelect.toLowerCase();
+//     let i = 0
+//     switch (playerSelect){
+//         case "rock":
+//             if(computerSelect === "paper"){
+//                 return("Computer wins")
+//             }
+//             else {
+//                 return("Player wins")
+//             }
+//         case "paper":
+//             if(computerSelect === "scissor"){
+//                 return("Computer wins")
+//             }
+//             else{
+//                 return("Player wins");
+//             }
+//         case "scissor":
+//             if(computerSelect === "rock"){
+//                 return("Computer wins")
+//             }
+//             else{
+//                 return("Player wins");
+//             }
+//         default:
+//             return("You fudged up")
+//     }
+// }
+
+// console.log(game("rock"));
+
+// function game(input){
+//     for (i=0;i<3;i++){
+//     a = singleRoundOfPlay(input);
+//     playerWin = 0;
+//     computerWin = 0;
+//     if(a === "Computer wins"){
+//         computerWin++
+//     }
+//     else if(a === "Player wins"){
+//         playerWin++
+//     }
+// }
+// if (playerWin>computerWin){
+//     return "player won"
+// }
+// else if (playerWin<computerWin){
+//     return "computer won"
+// }
+// else{
+//     return "draw"
+// }
+// }
