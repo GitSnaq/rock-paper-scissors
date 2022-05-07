@@ -28,8 +28,8 @@ function roundOfGameplay(playerSelection, computerSelection){
     }
 }
 // console.log(roundOfGameplay("Rock", computerPlay()))
-
-console.log(game("rock"))
+let input = prompt("Enter rock, paper, scissor")
+console.log(game(input))
 
 function game(a){
     playerCount = 0;
