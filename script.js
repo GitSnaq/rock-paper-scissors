@@ -28,16 +28,16 @@ function roundOfGameplay(playerSelection, computerSelection){
     }
 }
 // console.log(roundOfGameplay("Rock", computerPlay()))
-let input = prompt("Enter rock, paper, scissor")
-console.log(game(input))
+console.log(game())
 
-function game(a){
+function game(){
     playerCount = 0;
     computerCount = 0;
     i = 0;
     while (i<10){
+        let input = prompt("Enter rock, paper, scissor")
         pcChoice = computerPlay();
-        result = roundOfGameplay(a, pcChoice)
+        result = roundOfGameplay(input, pcChoice)
         console.log(result)
         i++
         if (result==="player wins"){
@@ -63,7 +63,9 @@ function game(a){
     }
 }
 
-
+//currently the code only asks user once for input and then uses that all rounds
+//need to make the program wait for input for all rounds
+//and maybe let user select number of rounds to be played
 
 
 
