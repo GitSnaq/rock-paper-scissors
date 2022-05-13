@@ -7,7 +7,7 @@ function game() {
     const rockBtn = document.querySelector(".rock");
     const paperBtn = document.querySelector(".paper");
     const scissorBtn = document.querySelector(".scissor");
-    const restartBtn = document.querySelector(".restart");
+    const restartBtn = document.querySelector(".restart-btn");
     const playerScore = document.querySelector(".player-counter")
     const computerScore = document.querySelector(".computer-counter")
     const drawScore = document.querySelector(".draw-counter")
@@ -76,25 +76,30 @@ function game() {
 function finalResult(playerResult, computerResult, drawResult){
     const result = document.querySelector(".result")
     if(playerResult >computerResult){
-        result.textContent = `Game Over. Player won ${playerResult-computerResult} more games than computer
+        result.textContent = `Game Over. Player won ${playerResult-computerResult} more games than the computer
         with ${drawResult} draws`
+        result.style.color = "green"
     }else if(computerResult > playerResult){
         result.textContent = `Game over. Computer won ${computerResult-playerResult} more games than the player
         with ${drawResult} draws`
+        result.style.color = "red"
     } else{
         result.textContent = `Game Over. It was a total draw where player won ${playerResult-computerResult} more than the computer`
+        result.style.color = "white"
     }
 }
 function gameOver(){
+    //i realize theres more stuff here than needed and ill come back and remove when needed
     const rockBtn = document.querySelector(".rock");
     const paperBtn = document.querySelector(".paper");
     const scissorBtn = document.querySelector(".scissor");
-    const restartBtn = document.querySelector(".restart");
+    const restartBtn = document.querySelector(".restart-btn");
     const playerScore = document.querySelector(".player-counter")
     const computerScore = document.querySelector(".computer-counter")
     const drawScore = document.querySelector(".draw-counter")
     const result = document.querySelector(".result")
     const movesLeft = document.querySelector(".moves")
+    const shutDownBtn = document.querySelector(".shut-down-btn")
 
     playerChoiceArray = [rockBtn, paperBtn, scissorBtn]
     playerChoiceArray.forEach(option => {
@@ -102,5 +107,11 @@ function gameOver(){
     })
 
     restartBtn.style.display = "inline-block"
+    shutDownBtn.style.display = "inline-block"
+
+    shutDownBtn.addEventListener("click", ()=>{
+        window.close()
+    })
+
 }
 game()

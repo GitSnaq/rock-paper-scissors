@@ -46,8 +46,8 @@ eeeeee
     gap: 69px;
 }
 button{
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     transition: 0.7s;
     background-color: #393e46;
     border: none;
@@ -55,6 +55,10 @@ button{
 img{
     width: 100%;
     height: 100%;
+}
+.restart-btn > img{
+    width: 90%;
+    height: 90%;
 }
 .rock:hover,
 .paper:hover,
@@ -68,10 +72,26 @@ img{
     box-shadow:15px 5px 5px #304154
     ;
 }
-
-
-
-
 .restart{
+    width: 125px;
+    height: 125px;
+    background-color: aqua;
+}
+
+.restart-btn,
+.shut-down-btn{
     display: none;
+    transition: 0.7s;
+}
+.restart-btn:hover{
+    background-color: green;
+    transform: scale(1.2) rotate(360deg);
+    border-radius: 25%;
+    cursor: pointer;
+}
+.shut-down-btn:hover{
+    background-color: red;
+    transform: scale(1.2) rotate(360deg);
+    border-radius: 25%;
+    cursor: pointer;
 }
