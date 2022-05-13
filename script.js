@@ -1,8 +1,9 @@
+//Computer calculates its choice
 function computerChoice() {
     computerChoiceArray = ["rock", "paper", "scissor"]
     return computerChoiceArray[Math.floor(Math.random() * computerChoiceArray.length)]
 }
-
+//main function of the game
 function game() {
     const rockBtn = document.querySelector(".rock");
     const paperBtn = document.querySelector(".paper");
@@ -21,6 +22,8 @@ function game() {
     playerChoiceArray = [rockBtn, paperBtn, scissorBtn]
     playerChoiceArray.forEach(option => {
         option.addEventListener("click", (e) => {
+            //use className instead of textContent because i use images and no text
+            //in the buttons.
             gameResult(e.target.className, computerChoice())
         })
     })
