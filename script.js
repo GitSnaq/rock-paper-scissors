@@ -14,7 +14,7 @@ function game() {
     const drawScore = document.querySelector(".draw-counter")
     const result = document.querySelector(".result")
     const movesLeft = document.querySelector(".moves")
-
+    
     playerScoreCounter = 0;
     computerScoreCounter = 0;
     drawScoreCounter = 0;
@@ -37,61 +37,62 @@ function game() {
             playerScore.textContent = ++playerScoreCounter
             movesLeft.textContent = `Moves left: ${moves-1}`
 
-        } else if(playerInput ==="paper" && computerInput ==="rock"){
+        } else if (playerInput === "paper" && computerInput === "rock") {
             result.textContent = "Player Wins"
             playerScore.textContent = ++playerScoreCounter
             movesLeft.textContent = `Moves left: ${moves-1}`
 
-        } else if(playerInput ==="scissor" && computerInput==="paper"){
+        } else if (playerInput === "scissor" && computerInput === "paper") {
             result.textContent = "Player Wins"
             playerScore.textContent = ++playerScoreCounter
             movesLeft.textContent = `Moves left: ${moves-1}`
 
-        }else if(playerInput==="rock" && computerInput ==="paper"){
+        } else if (playerInput === "rock" && computerInput === "paper") {
             result.textContent = "Computer Wins"
             computerScore.textContent = ++computerScoreCounter
             movesLeft.textContent = `Moves left: ${moves-1}`
 
-        }else if(playerInput==="paper" && computerInput ==="scissor"){
+        } else if (playerInput === "paper" && computerInput === "scissor") {
             result.textContent = "Computer Wins"
             computerScore.textContent = ++computerScoreCounter
             movesLeft.textContent = `Moves left: ${moves-1}`
 
-        }else if(playerInput==="scissor" && computerInput ==="rock"){
+        } else if (playerInput === "scissor" && computerInput === "rock") {
             result.textContent = "Computer Wins"
             computerScore.textContent = ++computerScoreCounter
             movesLeft.textContent = `Moves left: ${moves-1}`
 
-        }else{
-            result.textContent ="It was a draw";
+        } else {
+            result.textContent = "It was a draw";
             drawScore.textContent = ++drawScoreCounter
             movesLeft.textContent = `Moves left: ${moves-1}`
         }
 
         moves--
-        if(moves === 0){
+        if (moves === 0) {
             finalResult(playerScoreCounter, computerScoreCounter, drawScoreCounter)
             gameOver()
         }
     }
 }
 
-function finalResult(playerResult, computerResult, drawResult){
+function finalResult(playerResult, computerResult, drawResult) {
     const result = document.querySelector(".result")
-    if(playerResult >computerResult){
+    if (playerResult > computerResult) {
         result.textContent = `Game Over. Player won ${playerResult-computerResult} more games than the computer
         with ${drawResult} draws`
         result.style.color = "green"
-    }else if(computerResult > playerResult){
+    } else if (computerResult > playerResult) {
         result.textContent = `Game over. Computer won ${computerResult-playerResult} more games than the player
         with ${drawResult} draws`
         result.style.color = "red"
-    } else{
-        result.textContent = `Game Over. It was a total draw where player won ${playerResult-computerResult} more than the computer`
+    } else {
+        result.textContent = `Game Over. It was a total draw where the player won ${playerResult-computerResult} more than the computer`
         result.style.color = "white"
     }
 }
-function gameOver(){
+
+function gameOver() {
     //i realize theres more stuff here than needed and ill come back and remove when needed
     const rockBtn = document.querySelector(".rock");
     const paperBtn = document.querySelector(".paper");
@@ -112,7 +113,7 @@ function gameOver(){
     restartBtn.style.display = "inline-block"
     shutDownBtn.style.display = "inline-block"
 
-    shutDownBtn.addEventListener("click", ()=>{
+    shutDownBtn.addEventListener("click", () => {
         window.close()
     })
 
